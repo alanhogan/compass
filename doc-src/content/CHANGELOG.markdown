@@ -14,7 +14,28 @@ The Documentation for the [latest stable release](http://compass-style.org/docs/
 
 The Documentation for the [latest preview release](http://beta.compass-style.org/)
 
-0.12.2 (UNRELEASED)
+0.12.6 (04/07/2014)
+-------------------
+
+* Don't read the compass version from a file, this causes issues in
+  jruby environments.
+
+0.12.5 (04/07/2014)
+-------------------
+
+* Fix a windows issue by forcing a Sass upgrade.
+
+0.12.4 (03/20/2014)
+-------------------
+
+* Fix concurrency issues with css and sprite files.
+
+0.12.3 (03/04/2014)
+-------------------
+
+* Restrict Sass version to 3.2
+
+0.12.2 (06/24/2012)
 -------------------
 
 * [Vertical Rhythm Module] Removed the `$ie-font-ratio` constatnt in
@@ -29,6 +50,9 @@ The Documentation for the [latest preview release](http://beta.compass-style.org
 * [CSS3] Added a css3/hyphenation module for the `word-break` and `hyphens` properties.
 * [CSS3] Made the API more consistent across the different mixins in the transitions module.
 * [CSS3] The text-shadow mixin now supports the spread parameter and it is used to progressively enhance browsers that support it.
+* [CSS3] Add a mixin for the unofficial `filter` property. [Docs](/reference/compass/css3/regions/)
+* [CSS3] Removed the `-ms` prefix for gradients and transforms.
+  Microsoft took so long to release them, that the spec was approved first.
 * [CLI] Added a `-I` option for adding sass import paths via the CLI during compilation and project set up.
 * [Configuration] For better ruby and rails integration, the `add_import_path` command now accepts
   [Sass::Importer](http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#custom_importers) objects
@@ -40,6 +64,7 @@ The Documentation for the [latest preview release](http://beta.compass-style.org
 * Output of SVG and original webkit gradients is now omitted when using
   the degree-based linear gradient syntax.
 * Added a `--fonts-dir` configuration flag for the compass command line.
+* Added `tint()` and `shade()` color helper functions, for better ligthening/darkening of colors.
 
 0.12.1 (03/14/2012)
 -------------------

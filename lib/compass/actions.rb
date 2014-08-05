@@ -10,7 +10,11 @@ module Compass
     # copy/process a template in the compass template directory to the project directory.
     def copy(from, to, options = nil, binary = false)
       options ||= self.options if self.respond_to?(:options)
-      contents = File.new(from).read
+      if binary
+        contents = File.new(from,"rb").read
+      else
+        contents = File.new(from).read
+      end  
       write_file to, contents, options, binary
     end
 
@@ -51,9 +55,7 @@ module Compass
       if skip_write
         FileUtils.touch file_name unless options[:dry_run]
       else
-        mode = "w"
-        mode << "b" if binary
-        open(file_name, mode) do |file|
+        Sass::Util.atomic_create_and_write_file(file_name) do |file|
           file.write(contents)
         end
       end
